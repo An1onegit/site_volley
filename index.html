@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- mettre une icone sur l'onglet -->
+    <link rel="icon" type="image/x-icon" href="/img/volleyball-solid.ico">
+    
+    <script src="volley.js" type="text/javascript"></script>
+    <script src="https://kit.fontawesome.com/a92982ec20.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+
+    <!-- AOS, un "plugin" github pour faire des animations faciles-->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> 
+    <title>VolleyBall</title>
+</head>
+<body class="bg" onload="loadQuestion()"> 
+    <nav class="navbar">
+        <a href="#" class="logo">HOME</a>
+        <div class="nav-links">
+            <ul>
+                <li><a href="#rules">Règles</a></li>
+                <li><a href="#quiz">Quiz</i></a></li>
+                <li><a href="video.html">Vidéos</a></li>
+                <li><a href="players.html">Joueurs</i></a></li>
+                <li><a href="https://www.mikasa.fr/categorie-produit/volleyball/" target="_blank">Acheter</a></li>
+            </ul>
+        </div>
+    </nav>
+    <header style="background-image: url('/img/volleyBG.jpg');"></header>
+    <div class="title">
+        <h1>Bienvenue sur mon site de <br> <span style="color: #f48d00;">VolleyBall</span></h1>
+    </div>
+
+    <div style="text-align: center;">
+        <h2>Voici les règles principales</h2>
+    </div>
+    
+    <!-- Rotation -->
+    <section id="rules">
+        <div class="container" data-aos="fade-right" style="background-color: #d8d8d8 ">
+            <div class="row">
+                <div class="column-66">
+                    <h1 class="large-font"><b>La rotation</b></h1>
+                    <p style="font-size: 25px;">Au <span style="font-size: 35px; color: #f48d00;">Volleyball</span>, une
+                        rotation se fait quand une équipe gagne le point sur un service adverse,
+                        à ce moment-là tous les joueurs de l'équipe doivent tourner dans le sens inverse des aiguilles d'une
+                        montre.</p>
+                </div>
+                <div class="column-33">
+                    <img src="/img/rotation.jpg" width="335" height="471">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Points -->
+    <div class="container"  data-aos="fade-left">
+        <div class="row">
+            <div class="column-33">
+                <img src="/img/scoring.JPG" alt="App" width="335" height="471">
+            </div>
+            <div class="column-66">
+                <h1 class="large-font"><b>Les Points</b></h1>
+                <p style="font-size: 25px;">Au cours d'un <span style="font-size: 35px; color: #f48d00;">Match</span>, à
+                    chaque fois que la balle tombe par terre, ou plus généralement qu'une règle n'est pas réspectée,
+                    un point est ajouté au score de l'équipe. Au bout de 25 points le set est fini s'il y a plus de 2
+                    points décart. Pour le nombre de set tout dépend soit de l'envie des joueurs soit de la comptétion,
+                    en général c'est 2 ou 3 sets gagnants.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Service -->
+    <div class="container" data-aos="fade-right" style="background-color: #d8d8d8 ">
+        <div class="row">
+            <div class="column-66">
+                <h1 class="large-font"><b>Le Service</b></h1>
+                <p style="font-size: 25px;">L'équipe qui a gagné l'échange sert, le service se fait après le signal de
+                    l'arbitre et derrière la ligne arrière. Il doit être effectué dans les 8 secondes après le signal.
+                    Une fois la balle lancée impossible de la rattraper, il faut frapper. <br>
+                    <i><span style="color: #ff3d3d;">Attention</span>, le service ne peut pas être contré.</i>
+                </p>
+            </div>
+            <div class="column-33">
+                <img src="/img/serve.jpg" width="335" height="471">
+            </div>
+        </div>
+    </div>
+
+    <div id="quiz" style="position: relative; height: 350px; padding: 15px;">
+        <h2 class="large-font">Quiz sur vos connaissances sur le VolleyBall :</h2>
+        <h2 id="question" style="padding: 30px;">d</h2>
+        <ul id="choices" style="padding: 20px;"></ul>
+    </div>
+
+    <script>
+        const questions = [
+                {
+                    question: "En quelle année le volley-ball fut-il créé ?",
+                    choices: ["1875", "1895", "1915", "1935"],
+                    correctAnswer: "1895"
+                },
+                {
+                    question: "De quel pays cette discipline sportive est-elle originaire ?",
+                    choices: ["Allemagne", "Angleterre", "Canada", "Etats-Unis"],
+                    correctAnswer: "Etats-Unis"
+                },
+                {
+                    question: "Dans quel club Earvin Ngapeth évolue t-il ?",
+                    choices: ["Modène Volley", "Paris UC", "VK Kouzbass", "Zenit Kazan"],
+                    correctAnswer: "Modène Volley"
+                },
+                {
+                    question: "Vrai ou Faux ? Tous les joueurs présents sur le terrain sont obligés de servir.",
+                    choices: ["Vrai", "Faux"],
+                    correctAnswer: "Faux"
+                },
+                {
+                    question: "Quel est la hauteur d'un filet de volley-ball lors des compétitions masculines ?",
+                    choices: ["2,23 mètres", "2,33 mètres", "2,43 mètres", "2,53 mètres"],
+                    correctAnswer: "2,43 mètres"
+                }
+            ];
+
+            let currentQuestion = 0;
+            let score = 0;
+
+            const quiz = document.getElementById("quiz");
+            const questionEl = document.getElementById("question");
+            const choiceEl = document.getElementById("choices");
+
+            function loadQuestion() {
+                const question = questions[currentQuestion];
+                questionEl.textContent = question.question;
+
+                choiceEl.innerHTML = "";
+                question.choices.forEach(choice => {
+                    const li = document.createElement("button");
+                    li.textContent = choice;
+                    li.addEventListener("click", () => {
+                        if (choice === question.correctAnswer) {
+                            score++;
+                        }
+
+                        currentQuestion++;
+
+                        if (currentQuestion >= questions.length) {
+                            // display score
+                            quiz.innerHTML = `<h2>Ton score est de ${score}/${questions.length}</h2>`;
+                        } else {
+                            loadQuestion();
+                        }
+                    });
+
+                    choiceEl.appendChild(li);
+                });
+            }
+    </script>
+    
+    <div class="footer">
+            <!-- <button type="button" onclick="changeFontSize(10)">Petit</button>
+            <button type="button" onclick="changeFontSize(15)">Moyen</button>
+            <button type="button" onclick="changeFontSize(20)">Grand</button> -->
+            <p>Copyright all right reserved &copy; 2022-2023</p>
+    </div>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+</body> 
+</html>
