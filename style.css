@@ -141,7 +141,7 @@ img {
     height: 800px;
     background-color: #020031;
 }
-/* Create two equal columns that floats next to each other */
+
 .column {
     float: left;
     width: 50%;
@@ -152,7 +152,6 @@ img {
     margin-top: 12px;
 }
 
-/* CSS */
 button {
     background: #5E5DF0;
     border-radius: 999px;
